@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Map,
   BarChart3,
@@ -11,6 +12,8 @@ import IraqMap from "../components/IraqMap";
 import ProvinceDetails from "../components/ProvinceDetails";
 
 function Dashboard() {
+  const navigate = useNavigate();
+
   const [selectedProvince, setSelectedProvince] =
     useState(null);
 
@@ -47,6 +50,17 @@ function Dashboard() {
           province.environmentalScore || 0
         ) === bestScore
     ) || null;
+
+  // فتح صفحة تفاصيل المحافظة المختارة
+  const handleViewDetails = (province) => {
+    if (!province?.id) return;
+
+    navigate(
+      `/provinces?province=${encodeURIComponent(
+        province.id
+      )}`
+    );
+  };
 
   return (
     <div className="min-h-[calc(100vh-76px)]">
@@ -324,7 +338,7 @@ function Dashboard() {
           </div>
         </div>
 
-        {/* Selected province glass indicator */}
+        {/* Selected province indicator */}
         {selectedProvince && (
           <div
             className="
@@ -382,9 +396,7 @@ function Dashboard() {
             onClose={() =>
               setSelectedProvince(null)
             }
-            onViewDetails={(province) => {
-              setSelectedProvince(province);
-            }}
+            onViewDetails={handleViewDetails}
           />
         )}
       </section>
@@ -450,7 +462,6 @@ function StatCard({
         ${current.border}
       `}
     >
-      {/* Hover glow */}
       <div
         className={`
           pointer-events-none
