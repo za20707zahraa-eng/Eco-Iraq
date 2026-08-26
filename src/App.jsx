@@ -9,6 +9,8 @@ import {
 import MainLayout from "./components/layout/MainLayout";
 import Dashboard from "./pages/Dashboard";
 import ProvinceDetailsPage from "./pages/ProvinceDetailsPage";
+import IncidentReporter from "./pages/IncidentReporter";
+import ReportsComparison from "./pages/ReportsComparison";
 
 function AppContent() {
   const navigate = useNavigate();
@@ -78,23 +80,13 @@ function AppContent() {
         {/* Incident Reporter */}
         <Route
           path="/reporter"
-          element={
-            <PagePlaceholder
-              title="Incident Reporter"
-              description="Report and track environmental incidents."
-            />
-          }
+          element={<IncidentReporter />}
         />
 
         {/* Reports & Comparison */}
         <Route
-          path="/reports"
-          element={
-            <PagePlaceholder
-              title="Reports & Comparison"
-              description="Compare environmental scores and analyze Iraq provinces."
-            />
-          }
+         path="/reports"
+         element={<ReportsComparison />}
         />
 
         {/* Fallback */}
