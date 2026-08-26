@@ -1,0 +1,365 @@
+.eco-simulator {
+  min-height: 100vh;
+  padding: 40px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(91, 105, 78, 0.18), transparent 30%),
+    radial-gradient(circle at 85% 80%, rgba(72, 84, 75, 0.16), transparent 30%),
+    linear-gradient(135deg, #20251f 0%, #303631 48%, #191d1a 100%);
+  color: #e9eee8;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  transition: background 0.6s ease, color 0.4s ease;
+}
+
+.eco-simulator * {
+  box-sizing: border-box;
+}
+
+.eco-simulator.default {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(91, 105, 78, 0.18), transparent 30%),
+    radial-gradient(circle at 85% 80%, rgba(72, 84, 75, 0.16), transparent 30%),
+    linear-gradient(135deg, #20251f 0%, #303631 48%, #191d1a 100%);
+}
+
+.eco-simulator.green-theme {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(126, 180, 111, 0.30), transparent 32%),
+    radial-gradient(circle at 85% 80%, rgba(82, 135, 75, 0.22), transparent 30%),
+    linear-gradient(135deg, #253525 0%, #42613e 50%, #243424 100%);
+}
+
+.eco-simulator.water-theme {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(76, 151, 190, 0.30), transparent 32%),
+    radial-gradient(circle at 85% 80%, rgba(46, 105, 143, 0.22), transparent 30%),
+    linear-gradient(135deg, #172c36 0%, #285268 50%, #172b35 100%);
+}
+
+.eco-simulator.dust-theme {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(155, 160, 157, 0.25), transparent 32%),
+    radial-gradient(circle at 85% 80%, rgba(108, 114, 112, 0.22), transparent 30%),
+    linear-gradient(135deg, #292d2d 0%, #555b59 50%, #282c2c 100%);
+}
+
+.eco-simulator.desert-theme {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(171, 143, 105, 0.30), transparent 32%),
+    radial-gradient(circle at 85% 80%, rgba(126, 101, 73, 0.22), transparent 30%),
+    linear-gradient(135deg, #332b22 0%, #665441 50%, #30271f 100%);
+}
+
+.eco-simulator.solar-theme {
+  background:
+    radial-gradient(circle at 15% 20%, rgba(219, 181, 71, 0.30), transparent 32%),
+    radial-gradient(circle at 85% 80%, rgba(164, 133, 45, 0.22), transparent 30%),
+    linear-gradient(135deg, #302c1c 0%, #665d32 50%, #2d291a 100%);
+}
+
+.simulator-header {
+  max-width: 1150px;
+  margin: 0 auto 35px;
+  text-align: center;
+}
+
+.simulator-header small {
+  display: inline-block;
+  color: #a4b494;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.simulator-header h1 {
+  margin: 0;
+  font-size: 42px;
+  font-weight: 800;
+  color: #f1f4ee;
+}
+
+.simulator-header p {
+  margin: 12px auto 0;
+  max-width: 650px;
+  color: #aeb7ae;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.simulator-container {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+.simulator-card,
+.simulator-result {
+  background: rgba(54, 61, 55, 0.92);
+  border: 1px solid rgba(164, 180, 148, 0.16);
+  border-radius: 22px;
+  padding: 28px;
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(12px);
+  transition:
+    background 0.6s ease,
+    border-color 0.6s ease,
+    box-shadow 0.6s ease;
+}
+
+.eco-simulator.green-theme .simulator-card,
+.eco-simulator.green-theme .simulator-result {
+  background: rgba(54, 82, 52, 0.92);
+  border-color: rgba(126, 180, 111, 0.25);
+}
+
+.eco-simulator.water-theme .simulator-card,
+.eco-simulator.water-theme .simulator-result {
+  background: rgba(38, 72, 88, 0.92);
+  border-color: rgba(76, 151, 190, 0.28);
+}
+
+.eco-simulator.dust-theme .simulator-card,
+.eco-simulator.dust-theme .simulator-result {
+  background: rgba(70, 75, 74, 0.92);
+  border-color: rgba(155, 160, 157, 0.25);
+}
+
+.eco-simulator.desert-theme .simulator-card,
+.eco-simulator.desert-theme .simulator-result {
+  background: rgba(91, 72, 54, 0.92);
+  border-color: rgba(171, 143, 105, 0.28);
+}
+
+.eco-simulator.solar-theme .simulator-card,
+.eco-simulator.solar-theme .simulator-result {
+  background: rgba(91, 80, 39, 0.92);
+  border-color: rgba(219, 181, 71, 0.28);
+}
+
+.simulator-card h2 {
+  margin: 0 0 22px;
+  color: #edf1eb;
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.simulator-card select {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #596259;
+  outline: none;
+  background: #292e2a;
+  color: #edf1eb;
+  font-size: 15px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.simulator-card select:hover {
+  border-color: #8d9e7c;
+}
+
+.simulator-card select:focus {
+  border-color: #a4b494;
+  box-shadow: 0 0 0 3px rgba(164, 180, 148, 0.12);
+}
+
+.province-info {
+  margin-top: 24px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.province-info h3 {
+  margin: 0 0 18px;
+  color: #b7c7a7;
+  font-size: 25px;
+}
+
+.province-info p {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin: 0;
+  padding: 11px 0;
+  color: #b9c0ba;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.045);
+  font-size: 14px;
+}
+
+.province-info p:last-child {
+  border-bottom: none;
+}
+
+.province-info strong {
+  color: #eef2ec;
+}
+
+.good {
+  color: #91bd7a !important;
+}
+
+.medium {
+  color: #d0ae63 !important;
+}
+
+.danger {
+  color: #d97b70 !important;
+}
+
+.simulator-card label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 10px;
+  color: #dce2da;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.simulator-card label strong {
+  color: #a9bd95;
+  font-size: 14px;
+}
+
+.simulator-card input[type="range"] {
+  width: 100%;
+  height: 5px;
+  margin: 0 0 4px;
+  appearance: none;
+  border-radius: 20px;
+  background: #626a63;
+  outline: none;
+  cursor: pointer;
+}
+
+.simulator-card input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #9bab88;
+  border: 3px solid #303630;
+  box-shadow: 0 0 0 2px rgba(155, 171, 136, 0.25);
+  cursor: pointer;
+}
+
+.simulator-card input[type="range"]::-moz-range-thumb {
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #9bab88;
+  border: 3px solid #303630;
+  box-shadow: 0 0 0 2px rgba(155, 171, 136, 0.25);
+  cursor: pointer;
+}
+
+.simulator-result {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 35px;
+}
+
+.simulator-result small {
+  color: #8e9c8e;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.result-score {
+  margin: 15px 0 5px;
+  font-size: 86px;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.result-score span {
+  margin-right: 6px;
+  color: #89938a;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.simulator-result p {
+  color: #adb5ad;
+  font-size: 14px;
+  margin: 12px 0;
+}
+
+.simulator-result p strong {
+  color: #e5ebe3;
+}
+
+.simulator-result h3 {
+  margin: 8px 0 22px;
+  color: #c0cbb8;
+  font-size: 27px;
+}
+
+.result-message {
+  max-width: 650px;
+  margin: 20px auto 0;
+  padding: 16px 20px;
+  border-radius: 14px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+  background: rgba(142, 163, 125, 0.12);
+  border: 1px solid rgba(142, 163, 125, 0.2);
+  color: #c3d0ba;
+}
+
+@media (max-width: 800px) {
+  .eco-simulator {
+    padding: 25px 16px;
+  }
+
+  .simulator-container {
+    grid-template-columns: 1fr;
+  }
+
+  .simulator-result {
+    grid-column: auto;
+  }
+
+  .simulator-header h1 {
+    font-size: 32px;
+  }
+
+  .result-score {
+    font-size: 65px;
+  }
+}
+
+@media (max-width: 480px) {
+  .eco-simulator {
+    padding: 20px 12px;
+  }
+
+  .simulator-card,
+  .simulator-result {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  .simulator-header h1 {
+    font-size: 28px;
+  }
+
+  .province-info h3 {
+    font-size: 22px;
+  }
+
+  .result-score {
+    font-size: 55px;
+  }
+}
