@@ -1,44 +1,9 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
-
 import MainLayout from "./components/layout/MainLayout";
 import Dashboard from "./pages/Dashboard";
 import ProvinceDetailsPage from "./pages/ProvinceDetailsPage";
 
-function AppContent() {
-  const navigate = useNavigate();
-  const location = useLocation();
-
-  const getActiveItem = (pathname) => {
-    if (pathname === "/") {
-      return "Dashboard";
-    }
-
-    if (pathname.startsWith("/provinces")) {
-      return "Province Details";
-    }
-
-    if (pathname.startsWith("/simulator")) {
-      return "Eco Simulator";
-    }
-
-    if (pathname.startsWith("/reporter")) {
-      return "Incident Reporter";
-    }
-
-    if (pathname.startsWith("/reports")) {
-      return "Reports & Comparison";
-    }
-
-    return "Dashboard";
-  };
-
-  const activeItem = getActiveItem(location.pathname);
+function App() {
+  const [activeItem, setActiveItem] = useState("Dashboard");
 
   const handleNavigate = (item) => {
     navigate(item.path);
@@ -160,3 +125,4 @@ function App() {
 }
 
 export default App;
+
