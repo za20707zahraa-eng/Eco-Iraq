@@ -1,8 +1,11 @@
+import { useState } from "react";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import MainLayout from "./components/layout/MainLayout";
 import Dashboard from "./pages/Dashboard";
 import ProvinceDetailsPage from "./pages/ProvinceDetailsPage";
 
-function App() {
+function AppContent() {
+  const navigate = useNavigate();
   const [activeItem, setActiveItem] = useState("Dashboard");
 
   const handleNavigate = (item) => {
@@ -125,4 +128,3 @@ function App() {
 }
 
 export default App;
-
