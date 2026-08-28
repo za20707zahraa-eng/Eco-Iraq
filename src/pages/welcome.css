@@ -1,27 +1,46 @@
 @import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap");
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
+.welcome-page {
   --green: #b6ff3c;
   --green-dark: #4d9f35;
   --dark: #031612;
   --dark-two: #061f19;
   --text: #f4f8f3;
   --muted: #9eafa7;
-}
 
-html {
-  scroll-behavior: smooth;
-}
+  box-sizing: border-box;
 
-body {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  direction: rtl;
+  color: var(--text);
+
   font-family: "Cairo", sans-serif;
-  background: var(--dark);
+
+  background:
+    radial-gradient(
+      circle at 72% 45%,
+      rgba(105, 190, 70, 0.18),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 15% 85%,
+      rgba(50, 130, 75, 0.13),
+      transparent 25%
+    ),
+    linear-gradient(
+      135deg,
+      #020f0c 0%,
+      #06221b 48%,
+      #03130f 100%
+    );
+}
+
+.welcome-page *,
+.welcome-page *::before,
+.welcome-page *::after {
+  box-sizing: border-box;
 }
 
 .welcome-page {
