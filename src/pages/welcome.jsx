@@ -32,20 +32,38 @@ export default function Welcome() {
             <p>IRAQI ENVIRONMENTAL PLATFORM</p>
           </div>
         </div>
+<nav>
+  <a
+    className="active"
+    href="/"
+    onClick={(e) => {
+      e.preventDefault();
+      navigate("/");
+    }}
+  >
+    الرئيسية
+  </a>
 
-        <nav>
-          <a className="active" href="/">
-            الرئيسية
-          </a>
+  <a
+    href="/about"
+    onClick={(e) => {
+      e.preventDefault();
+      navigate("/about");
+    }}
+  >
+    عن المشروع
+  </a>
 
-          <a href="#about">
-            عن المشروع
-          </a>
-
-          <a href="#contact">
-            تواصل معنا
-          </a>
-        </nav>
+  <a
+    href="/contact"
+    onClick={(e) => {
+      e.preventDefault();
+      navigate("/contact");
+    }}
+  >
+    تواصل معنا
+  </a>
+</nav>
 
         <button
           className="menu-button"

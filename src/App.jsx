@@ -15,6 +15,8 @@ import ProvinceDetailsPage from "./pages/ProvinceDetailsPage";
 import Ecosimulator from "./pages/Ecosimulator";
 import IncidentReporter from "./pages/IncidentReporter";
 import ReportsComparison from "./pages/ReportsComparison";
+import Aboutproject from "./pages/Aboutproject";
+import Contact from "./pages/Contact";
 
 
 function App() {
@@ -83,6 +85,9 @@ function App() {
           path="*"
           element={<Navigate to="/" replace />}
         />
+
+        <Route path="/about" element={<Aboutproject />} />
+         <Route path="/contact" element={<Contact />} />
 
       </Routes>
     </BrowserRouter>
